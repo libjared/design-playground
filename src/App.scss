@@ -89,46 +89,85 @@ $grey: grey;
   }
   
   section.App--intro {
-    .App--intro-column {
-      width: 45%;
-      
-      h1 {
-        margin-top: 0;
-        line-height: 1.18;
-        padding-top: 155px;
-        font-weight: 300;
-        font-size: 3.5rem;
-      }
-  
-      .App--intro-interactive {
-        width: 535px;
-        text-align: center;
-  
-        a {
-          display: inline-block;
-          width: 100%;
-          line-height: 73px;
-          text-decoration: none;
-          color: white;
-          background-color: $blue;
-          border-radius: 5px;
-        }
-  
-        p {
-          margin: 10px 0;
-          color: $grey;
+    .App--intro-content {
+      display: flex;
+
+      .App--intro-column {
+        width: 45%;
+        
+        h1 {
+          margin-top: 0;
+          line-height: 1.18;
+          padding-top: 155px;
           font-weight: 300;
-          
-          small {
-            font-size: 1.1rem;
+          font-size: 3.5rem;
+        }
+    
+        .App--intro-interactive {
+          width: 535px;
+          text-align: center;
+    
+          a {
+            display: inline-block;
+            width: 100%;
+            line-height: 73px;
+            text-decoration: none;
+            color: white;
+            background-color: $blue;
+            border-radius: 5px;
+          }
+    
+          p {
+            margin: 10px 0;
+            color: $grey;
+            font-weight: 300;
+            
+            small {
+              font-size: 1.1rem;
+            }
           }
         }
       }
-    }
 
-    aside {
-      position: absolute;
-      display: none;
+      .App--intro-anim {
+        width: 320px;
+        height: 320px;
+        margin: auto;
+        position: relative;
+      }
+      
+      .App--intro-anim-fg {
+        width: 320px;
+        height: 320px;
+        position: absolute;
+        background-image: repeating-linear-gradient(20deg, #9C27B080, #03A9F480 100px, #9C27B080 200px), url('Diamond_Pickaxe.webp');
+        background-repeat: no-repeat, no-repeat;
+        background-position: bottom left, center;
+        background-size: 320px calc(320px + 500px), contain;
+        image-rendering: pixelated;
+        mask-image: url('Diamond_Pickaxe.webp'), none;
+        mask-size: contain;
+        animation: 5s alternate ease-in-out infinite enchant;
+      }
+
+      .App--intro-anim-bg {
+        width: 350px;
+        height: 350px;
+        position: absolute;
+        background-image: url('Diamond_Pickaxe.webp');
+        background-repeat: no-repeat;
+        background-size: contain;
+        filter: brightness(0) contrast(0) brightness(1.25) blur(15px);
+      }
     }
+  }
+}
+
+@keyframes enchant {
+  0% {
+    background-position: 0 0, center;
+  }
+  100% {
+    background-position: 0 -500px, center;
   }
 }
