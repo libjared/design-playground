@@ -117,6 +117,11 @@ $grey: grey;
         p {
           margin: 10px 0;
           color: $grey;
+          font-weight: 300;
+          
+          small {
+            font-size: 1.1rem;
+          }
         }
       }
     }
